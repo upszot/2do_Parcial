@@ -38,11 +38,11 @@ RTA=$(gpg --batch --yes --passphrase "$PARCIAL" --output - -d ${SCRIPT_DIR}/B_Ba
 
 
 # C - Docker:
-cp -r ${DIR_BASE}/.Templates/Docker $HOME/$RESOLUCION/
+cp -r ${DIR_BASE}/.Templates/C_Docker $HOME/$RESOLUCION/
 RTA=$(gpg --batch --yes --passphrase "$PARCIAL" --output - -d ${SCRIPT_DIR}/C_Docker_${Nro_Punto_C}.e >> $HOME/$RESOLUCION/Ejercicios.txt 2>> /dev/null)
 
 # D - Ansible:
-cp -r ${DIR_BASE}/.Templates/Ansible $HOME/$RESOLUCION/
+cp -r ${DIR_BASE}/.Templates/D_Ansible $HOME/$RESOLUCION/
 RTA=$(gpg --batch --yes --passphrase "$PARCIAL" --output - -d $SCRIPT_DIR/D_Ansible_$Nro_Punto_D.e   >> $HOME/$RESOLUCION/Ejercicios.txt 2> /dev/null)
 
 
