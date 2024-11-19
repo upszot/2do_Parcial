@@ -16,9 +16,9 @@ SCRIPT_DIR="${DIR_BASE}/.Enunciados"
 
 # Numeros Random
 Nro_Punto_A="$(( ( RANDOM % 6 ) + 1 ))"
-Nro_Punto_B="$(( ( RANDOM % 5 ) + 1 ))"
-Nro_Punto_C="$(( ( RANDOM % 2 ) + 1 ))"
-Nro_Punto_D="$(( ( RANDOM % 2 ) + 1 ))"
+Nro_Punto_B="$(( ( RANDOM % 8 ) + 1 ))"
+Nro_Punto_C="$(( ( RANDOM % 4 ) + 1 ))"
+Nro_Punto_D="$(( ( RANDOM % 6 ) + 1 ))"
 
 ECODIGO="A${Nro_Punto_A}:B${Nro_Punto_B}:C${Nro_Punto_C}:D${Nro_Punto_D}"
 
@@ -39,14 +39,14 @@ RTA=$(gpg --batch --yes --passphrase "$PARCIAL" --output - -d ${SCRIPT_DIR}/B_Ba
 
 # C - Docker:
 touch $HOME/$RESOLUCION/script_Puntos/Def_PuntoC.sh
-RTA=$(gpg --batch --yes --passphrase "$PARCIAL" --output - -d ${SCRIPT_DIR}/C_Usuarios_${Nro_Punto_C}.e >> $HOME/$RESOLUCION/Ejercicios.txt 2>> /dev/null)
+RTA=$(gpg --batch --yes --passphrase "$PARCIAL" --output - -d ${SCRIPT_DIR}/C_Docker_${Nro_Punto_C}.e >> $HOME/$RESOLUCION/Ejercicios.txt 2>> /dev/null)
 
 # D - Ansible:
 touch $HOME/$RESOLUCION/script_Puntos/Def_PuntoD.sh
-RTA=$(gpg --batch --yes --passphrase "$PARCIAL" --output - -d $SCRIPT_DIR/D_Permisos_$Nro_Punto_D.e   >> $HOME/$RESOLUCION/Ejercicios.txt 2> /dev/null)
+RTA=$(gpg --batch --yes --passphrase "$PARCIAL" --output - -d $SCRIPT_DIR/D_Ansible_$Nro_Punto_D.e   >> $HOME/$RESOLUCION/Ejercicios.txt 2> /dev/null)
 
 
-sudo chattr +i $HOME/$RESOLUCION/Ejercicios.txt
+#sudo chattr +i $HOME/$RESOLUCION/Ejercicios.txt
 
 
 clear
