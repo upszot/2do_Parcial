@@ -1,6 +1,7 @@
 #!/bin/bash
 
 RESOLUCION="2p_2024"
+PARCIAL="UTNFRA_SO_2P2C_2024"
 
 if [ -d $HOME/$RESOLUCION/ ]; then
     echo "Por favor Ejecute: "
@@ -9,7 +10,7 @@ if [ -d $HOME/$RESOLUCION/ ]; then
     exit 1
 fi
 
-PARCIAL="UTNFRA_SO_2P2C_2024"
+mkdir -p $HOME/$RESOLUCION/
 DIR_BASE=$(dirname "$(readlink -f "$0")")
 SCRIPT_DIR="${DIR_BASE}/.Enunciados"
 
@@ -25,7 +26,6 @@ ECODIGO="A${Nro_Punto_A}:B${Nro_Punto_B}:C${Nro_Punto_C}:D${Nro_Punto_D}"
 echo "CODIGO: $ECODIGO" > $HOME/$RESOLUCION/Ejercicios.txt
 # CODIGO: A1:B1:C1:D1
 
-#mkdir -p $HOME/$RESOLUCION/script_Puntos
 
 # A - LVM:
 touch $HOME/$RESOLUCION/A_LVM.sh
@@ -34,15 +34,15 @@ RTA=$(gpg --batch --yes --passphrase "$PARCIAL" --output - -d ${SCRIPT_DIR}/A_LV
 # B - Bahs_script:
 mkdir $HOME/$RESOLUCION/B_BashScript
 RTA=$(gpg --batch --yes --passphrase "$PARCIAL" --output - -d ${SCRIPT_DIR}/B_Bash_${Nro_Punto_B}.e >> $HOME/$RESOLUCION/Ejercicios.txt 2>> /dev/null)
-RTA=$(gpg --batch --yes --passphrase "$PARCIAL" --output - -d ${SCRIPT_DIR}/B_Bash_${Nro_Punto_B}_Lista.e >> $HOME/$RESOLUCION/BashScript/Lista.txt 2>> /dev/null)
+RTA=$(gpg --batch --yes --passphrase "$PARCIAL" --output - -d ${SCRIPT_DIR}/B_Bash_${Nro_Punto_B}_Lista.e >> $HOME/$RESOLUCION/B_BashScript/Lista.txt 2>> /dev/null)
 
 
 # C - Docker:
-cp -r ${DIR_BASE}/.Templates/Docker/* $HOME/$RESOLUCION/C_Docker/
+cp -r ${DIR_BASE}/.Templates/Docker $HOME/$RESOLUCION/
 RTA=$(gpg --batch --yes --passphrase "$PARCIAL" --output - -d ${SCRIPT_DIR}/C_Docker_${Nro_Punto_C}.e >> $HOME/$RESOLUCION/Ejercicios.txt 2>> /dev/null)
 
 # D - Ansible:
-cp -r ${DIR_BASE}/.Templates/Ansible/* $HOME/$RESOLUCION/D_Ansible/
+cp -r ${DIR_BASE}/.Templates/Ansible $HOME/$RESOLUCION/
 RTA=$(gpg --batch --yes --passphrase "$PARCIAL" --output - -d $SCRIPT_DIR/D_Ansible_$Nro_Punto_D.e   >> $HOME/$RESOLUCION/Ejercicios.txt 2> /dev/null)
 
 
