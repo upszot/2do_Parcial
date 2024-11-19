@@ -23,7 +23,8 @@ Nro_Punto_D="$(( ( RANDOM % 6 ) + 1 ))"
 ECODIGO="A${Nro_Punto_A}:B${Nro_Punto_B}:C${Nro_Punto_C}:D${Nro_Punto_D}"
 
 # --- Genera Enunciado ---#
-echo "CODIGO: $ECODIGO" > $HOME/$RESOLUCION/Ejercicios.txt
+echo " Enunciado 2do Parcial " > $HOME/$RESOLUCION/Ejercicios.txt
+echo "CODIGO: $ECODIGO" > $HOME/$RESOLUCION/.Codigo.txt
 # CODIGO: A1:B1:C1:D1
 
 
@@ -46,7 +47,7 @@ cp -r ${DIR_BASE}/.Templates/D_Ansible $HOME/$RESOLUCION/
 RTA=$(gpg --batch --yes --passphrase "$PARCIAL" --output - -d $SCRIPT_DIR/D_Ansible_$Nro_Punto_D.e   >> $HOME/$RESOLUCION/Ejercicios.txt 2> /dev/null)
 
 
-#sudo chattr +i $HOME/$RESOLUCION/Ejercicios.txt
+sudo chattr +i $HOME/$RESOLUCION/Ejercicios.txt
 
 
 clear
