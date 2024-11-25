@@ -49,6 +49,7 @@ RTA=$(gpg --batch --yes --passphrase "$PARCIAL" --output - -d $SCRIPT_DIR/D_Ansi
 
 sudo chattr +i $HOME/$RESOLUCION/Ejercicios.txt
 sudo chattr +i $HOME/$RESOLUCION/.Codigo.txt
+sudo chattr +i $HOME/$RESOLUCION/B_BashScript/Lista.txt
 
 
 clear
